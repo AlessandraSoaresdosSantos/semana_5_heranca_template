@@ -15,13 +15,9 @@ const listaPessoas = document.querySelector('#lista-pessoas')
 
     const pessoa = new Pessoa(nome, endereco);
     
-     pessoa.nome = nome
+    pessoa.nome = nome
 
-     
-    alert(pessoa.nome)
- 
-
-    
+     alert(pessoa.nome)
  
  }
 
