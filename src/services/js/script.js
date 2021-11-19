@@ -1,21 +1,37 @@
+import {Pessoa } from '../../domain/Pessoa.js'
 
- const formPessoa = document.querySelector('#formulario-pessoa')
- const listaPessoas = document.querySelector('#lista-pessoas')
+const formPessoa = document.querySelector('#formulario-pessoa')
+const listaPessoas = document.querySelector('#lista-pessoas')
   
  const historico = []
  
  function registrarNovaPessoa(evento) {
-   
-    const dadosDoForm = new FormData(evento.target)
+    evento.preventDefault()
+
+    const dadosDoForm = new FormData(evento.target) 
 
     const nome = dadosDoForm.get('nome')
     const endereco = dadosDoForm.get('endereco')
+
+    const pessoa = new Pessoa(nome, endereco);
+    
+     pessoa.nome = nome
+
+     
+    alert(pessoa.nome)
+ 
+
+    
  
  }
 
 
 
 
+
+
+
+ 
 
 
 
