@@ -11,8 +11,8 @@ function registrarNovaPessoa(evento) {
     const dadosDoForm = new FormData(evento.target)
 
     const nome = dadosDoForm.get('nome')
+    const razaoSocial = dadosDoForm.get('t-razao-social')
     const endereco = dadosDoForm.get('endereco')
-    const telefone = dadosDoForm.get('telefone')
     const cnpj = dadosDoForm.get('cnpj') 
 
     const pessoaJuridica = new PessoaJuridica()

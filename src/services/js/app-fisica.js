@@ -11,20 +11,14 @@ function registrarNovaPessoa(evento) {
     const dadosDoForm = new FormData(evento.target)
 
     const nome = dadosDoForm.get('nome')
-    const endereco = dadosDoForm.get('endereco')
-    const telefone = dadosDoForm.get('telefone')
-
-    const cpf = dadosDoForm.get('cpf')
-    const dataNascimento = dadosDoForm.get('data')
+    const endereco = dadosDoForm.get('endereco') 
+    const cpf = dadosDoForm.get('cpf') 
     const nomeMae = dadosDoForm.get('nome-mae')
     const nomePai = dadosDoForm.get('nome-pai')
     const pis = dadosDoForm.get('pis')
+   
+    const pessoaFisica = new PessoaFisica(nome, endereco, cpf, pis,nomeMae, nomePai)
 
-    let data_nascimento = new Date(dataNascimento)
-   // data_nascimento.toLocaleDateString('pt-br', { timeZone: 'UTC' })
-
-    const pessoaFisica = new PessoaFisica()
-    
 
     historico.push(pessoaFisica)
 
@@ -37,12 +31,16 @@ function registrarNovaPessoa(evento) {
 function atualizarTela() {
     listaPessoas.innerHTML = ''
 
-    for (let pessoa of historico) {
+    for (let pessoaFisica of historico) {
         const item = document.createElement('li')
 
         item.innerText = `
-      Nome: ${pessoa.nome}
-      
+      Nome: ${pessoaFisica.nome}
+      Endereço: ${pessoaFisica.endereco}
+      CPF: ${pessoaFisica.cpf}
+      PIS: ${pessoaFisica.pis}
+      Nome mãe: ${pessoaFisica.nomeMae}
+      Nome pai: ${pessoaFisica.nomePai}      
     `
 
         listaPessoas.appendChild(item)
